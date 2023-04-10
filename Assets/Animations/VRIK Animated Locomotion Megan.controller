@@ -321,7 +321,7 @@ BlendTree:
     m_DirectBlendParameter: VRIK_Turn
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: d556ab52e17604958b19876c5f242758, type: 3}
+    m_Motion: {fileID: -203655887218126122, guid: b89064d9c912eb64a90926aadb976ab2, type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
