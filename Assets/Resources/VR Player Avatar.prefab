@@ -3272,6 +3272,7 @@ GameObject:
   - component: {fileID: 8275505378368118845}
   - component: {fileID: 2610025784219974215}
   - component: {fileID: 2610025784219974214}
+  - component: {fileID: 3153136567048610278}
   m_Layer: 0
   m_Name: Megan
   m_TagString: Untagged
@@ -3578,6 +3579,21 @@ MonoBehaviour:
       onRightFootstep:
         m_PersistentCalls:
           m_Calls: []
+--- !u!114 &3153136567048610278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8760434654655756935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a3690331d508a84091c0e6d7ff32d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftController: {fileID: 0}
+  rightController: {fileID: 0}
+  animator: {fileID: 2610025784219974215}
 --- !u!1 &8796231450652054309
 GameObject:
   m_ObjectHideFlags: 0
