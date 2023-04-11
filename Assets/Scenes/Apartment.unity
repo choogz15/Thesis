@@ -1452,6 +1452,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: e216ae10711589b4d9c2e683e5e50a8e, type: 2}
     - target: {fileID: 114568985850100520, guid: fca9d4afb3743274e8f7da14019d7e0b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114568985850100520, guid: fca9d4afb3743274e8f7da14019d7e0b, type: 3}
       propertyPath: _localPlayer.head
       value: 
       objectReference: {fileID: 90415069}
@@ -1462,7 +1466,7 @@ PrefabInstance:
     - target: {fileID: 114568985850100520, guid: fca9d4afb3743274e8f7da14019d7e0b, type: 3}
       propertyPath: _localAvatarPrefab
       value: 
-      objectReference: {fileID: 1435502846325602, guid: aaf0e93e08f9fbd4aa9a535ce639078a, type: 3}
+      objectReference: {fileID: 739223698916304571, guid: 1f294d261ae29434185c64f3c7fdba14, type: 3}
     - target: {fileID: 114568985850100520, guid: fca9d4afb3743274e8f7da14019d7e0b, type: 3}
       propertyPath: _localPlayer.leftHand
       value: 
@@ -3093,7 +3097,7 @@ MonoBehaviour:
   m_Camera: {fileID: 1653355862}
   m_OriginBaseGameObject: {fileID: 1356682892}
   m_CameraFloorOffsetObject: {fileID: 1694584789}
-  m_RequestedTrackingOriginMode: 2
+  m_RequestedTrackingOriginMode: 1
   m_CameraYOffset: 1.2
 --- !u!4 &1356682895
 Transform:

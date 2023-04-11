@@ -7,7 +7,7 @@ using TMPro;
 
 public class UpdateAvatar : MonoBehaviour
 {
-    private RealtimeAvatarManager realtimeAvatarManager;
+    private CustomAvatarManager realtimeAvatarManager;
     private RealtimeAvatar realtimeAvatar;
     private RealtimeAvatar otherAvatar;
     private string localPlayerName;
@@ -24,7 +24,7 @@ public class UpdateAvatar : MonoBehaviour
 
     private void Awake()
     {
-        realtimeAvatarManager = GetComponent<RealtimeAvatarManager>();
+        realtimeAvatarManager = GetComponent<CustomAvatarManager>();
     }
 
     private void OnEnable()
@@ -38,7 +38,7 @@ public class UpdateAvatar : MonoBehaviour
     }
 
     //TODO: fix for more than 2 players
-    private void AvatarCreated(RealtimeAvatarManager avatarmanager, RealtimeAvatar avatar, bool isLocalAvatar)
+    private void AvatarCreated(CustomAvatarManager avatarmanager, RealtimeAvatar avatar, bool isLocalAvatar)
     {
         if (isLocalAvatar)
         {

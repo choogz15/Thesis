@@ -123,7 +123,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: VRIK Animated Locomotion Megan
+  m_Name: VRIK Animated Locomotion Boy
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: VRIK_Turn
@@ -194,9 +194,9 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
-    m_Name: Right Hand Layer
-    m_StateMachine: {fileID: -4259245930676219773}
-    m_Mask: {fileID: 31900000, guid: 0cd05e6d4496acf47978bc4639ddd169, type: 2}
+    m_Name: Left Hand Layer
+    m_StateMachine: {fileID: -1654239584807955037}
+    m_Mask: {fileID: 31900000, guid: 142bed8e6f060134ea38f1c77a8fec1c, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 1
@@ -206,9 +206,9 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
-    m_Name: Left Hand Layer
-    m_StateMachine: {fileID: -1654239584807955037}
-    m_Mask: {fileID: 31900000, guid: 142bed8e6f060134ea38f1c77a8fec1c, type: 2}
+    m_Name: Right Hand Layer
+    m_StateMachine: {fileID: -4259245930676219773}
+    m_Mask: {fileID: 31900000, guid: 0cd05e6d4496acf47978bc4639ddd169, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 1
@@ -321,7 +321,7 @@ BlendTree:
     m_DirectBlendParameter: VRIK_Turn
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: b89064d9c912eb64a90926aadb976ab2, type: 3}
+    m_Motion: {fileID: -203655887218126122, guid: 343d35ffd15c8754c89cbec416b1e0e0, type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
