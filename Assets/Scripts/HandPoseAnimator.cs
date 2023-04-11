@@ -11,6 +11,8 @@ public class HandPoseAnimator : MonoBehaviour
     public ActionBasedController rightController;
     public Animator animator;
     public VRIK ik;
+    public float avatarModelHeight = 1.62f;
+
 
     public bool isScaled = false;
 
@@ -33,17 +35,17 @@ public class HandPoseAnimator : MonoBehaviour
         //Scale the avatar to user's height
         if(leftController.activateAction.action.ReadValue<float>() > 0.5 && isScaled == false)
         {
-            ScaleAvatar();
-            isScaled = true;
+            //ScaleAvatar();          
         }
 
     }
 
     void ScaleAvatar()
     {
-        float sizeF = (ik.solver.spine.headTarget.position.y - ik.references.root.position.y) / (ik.references.head.position.y - ik.references.root.position.y);
+        float sizeF = (ik.solver.spine.headTarget.position.y - ik.references.root.position.y) / avatarModelHeight;
         ik.references.root.localScale *= sizeF;
         Debug.Log("Scaling avatar");
+        isScaled = true;
     }
 
     //animator.SetFloat("Trigger_" + whichHand, controller.activateAction.action.ReadValue<float>());

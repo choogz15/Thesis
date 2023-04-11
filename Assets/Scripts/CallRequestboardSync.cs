@@ -6,7 +6,7 @@ using Normal.Realtime.Serialization;
 
 public class CallRequestboardSync : RealtimeComponent<CallRequestboardModel>
 {
-    [SerializeField] UpdateAvatar updateAvatar;
+    [SerializeField] MultiplayerManager multiplayerManager;
     [SerializeField] OngoingCallboardSync ongoingCallboardSync;
 
     protected override void OnRealtimeModelReplaced(CallRequestboardModel previousModel, CallRequestboardModel currentModel)
@@ -66,13 +66,13 @@ public class CallRequestboardSync : RealtimeComponent<CallRequestboardModel>
     private void CallRequestAdded(RealtimeDictionary<CallRequestModel> dictionary, uint key, CallRequestModel model, bool remote)
     {
         Debug.Log("[CallRequestboardSync]CallRequestAdded");
-        updateAvatar.OnCallRequestAdded((int)key, model.callerID);
+        multiplayerManager.OnCallRequestAdded((int)key, model.callerID);
     }
 
     private void CallRequestRemoved(RealtimeDictionary<CallRequestModel> dictionary, uint key, CallRequestModel model, bool remote)
     {
         Debug.Log("[CallRequestboardSync]CallRequestRemoved");
-        updateAvatar.OnCallRequestRemoved((int)key, model.callerID);
+        multiplayerManager.OnCallRequestRemoved((int)key, model.callerID);
     }
 
 }
