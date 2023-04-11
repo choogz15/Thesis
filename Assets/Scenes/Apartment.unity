@@ -194,7 +194,6 @@ GameObject:
   - component: {fileID: 41276379}
   - component: {fileID: 41276378}
   - component: {fileID: 41276377}
-  - component: {fileID: 41276382}
   m_Layer: 0
   m_Name: RightHand Controller
   m_TagString: Untagged
@@ -759,21 +758,6 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 875253871413052681, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
---- !u!114 &41276382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 41276375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a3690331d508a84091c0e6d7ff32d3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 41276381}
-  animator: {fileID: 5866666021812858952}
-  whichHand: Right
 --- !u!1 &48594467
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,6 +1397,10 @@ PrefabInstance:
     - target: {fileID: 1572161834460568, guid: fca9d4afb3743274e8f7da14019d7e0b, type: 3}
       propertyPath: m_Name
       value: Realtime + VR Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572161834460568, guid: fca9d4afb3743274e8f7da14019d7e0b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4520454903943832, guid: fca9d4afb3743274e8f7da14019d7e0b, type: 3}
       propertyPath: m_RootOrder
@@ -3043,7 +3031,7 @@ MonoBehaviour:
   m_OriginBaseGameObject: {fileID: 1356682892}
   m_CameraFloorOffsetObject: {fileID: 1694584789}
   m_RequestedTrackingOriginMode: 1
-  m_CameraYOffset: 1.18
+  m_CameraYOffset: 1.2
 --- !u!4 &1356682895
 Transform:
   m_ObjectHideFlags: 0
@@ -3862,7 +3850,6 @@ GameObject:
   - component: {fileID: 1799910336}
   - component: {fileID: 1799910335}
   - component: {fileID: 1799910334}
-  - component: {fileID: 1799910339}
   m_Layer: 0
   m_Name: LeftHand Controller
   m_TagString: Untagged
@@ -4427,21 +4414,6 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 7779212132400271959, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
---- !u!114 &1799910339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799910332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a3690331d508a84091c0e6d7ff32d3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 1799910338}
-  animator: {fileID: 5866666021812858952}
-  whichHand: Left
 --- !u!1 &1842838288
 GameObject:
   m_ObjectHideFlags: 0
@@ -4944,8 +4916,3 @@ PrefabInstance:
       objectReference: {fileID: 90415069}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 426c96950f13ebb45a28528eb255ec10, type: 3}
---- !u!95 &5866666021812858952 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9112929560337348704, guid: 426c96950f13ebb45a28528eb255ec10, type: 3}
-  m_PrefabInstance: {fileID: 3394927482574604328}
-  m_PrefabAsset: {fileID: 0}
