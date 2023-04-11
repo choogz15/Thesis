@@ -923,8 +923,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110899856}
-  m_LocalRotation: {x: 0.55373144, y: 0.7081726, z: 0.43107957, w: 0.077740066}
-  m_LocalPosition: {x: -0.049, y: -0.055, z: -0.092}
+  m_LocalRotation: {x: 0.44602484, y: 0.6266165, z: 0.5509344, w: 0.32385957}
+  m_LocalPosition: {x: -0.0519, y: -0.0343, z: -0.0752}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -935,7 +935,7 @@ Transform:
   - {fileID: 2034427670}
   m_Father: {fileID: 1799910333}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 211.632, y: -43.63202, z: -91.01599}
+  m_LocalEulerAnglesHint: {x: 203.675, y: -78.46301, z: -89.69101}
 --- !u!1 &113468922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,7 +1401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1572161834460568, guid: fca9d4afb3743274e8f7da14019d7e0b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4520454903943832, guid: fca9d4afb3743274e8f7da14019d7e0b, type: 3}
       propertyPath: m_RootOrder
@@ -3497,8 +3497,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567133205}
-  m_LocalRotation: {x: -0.5624963, y: 0.7514332, z: 0.31393144, w: -0.14280443}
-  m_LocalPosition: {x: 0.0429, y: -0.081, z: -0.0577}
+  m_LocalRotation: {x: -0.42504072, y: 0.68052655, z: 0.5204024, w: -0.29224193}
+  m_LocalPosition: {x: 0.044, y: -0.054, z: -0.035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3509,7 +3509,7 @@ Transform:
   - {fileID: 113468923}
   m_Father: {fileID: 41276376}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -18.128, y: -143.313, z: -79.69}
+  m_LocalEulerAnglesHint: {x: -27.378, y: -108.894, z: -83.726}
 --- !u!1 &1623039560
 GameObject:
   m_ObjectHideFlags: 0
@@ -4982,7 +4982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2584042948888754336, guid: 426c96950f13ebb45a28528eb255ec10, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2924962560474980890, guid: 426c96950f13ebb45a28528eb255ec10, type: 3}
       propertyPath: m_RootOrder

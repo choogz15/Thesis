@@ -3594,6 +3594,8 @@ MonoBehaviour:
   leftController: {fileID: 0}
   rightController: {fileID: 0}
   animator: {fileID: 2610025784219974215}
+  ik: {fileID: 2610025784219974214}
+  isScaled: 0
 --- !u!1 &8796231450652054309
 GameObject:
   m_ObjectHideFlags: 0
