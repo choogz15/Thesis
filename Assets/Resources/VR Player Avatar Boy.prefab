@@ -2381,7 +2381,7 @@ MonoBehaviour:
       pelvisTarget: {fileID: 0}
       pelvisPositionWeight: 0
       pelvisRotationWeight: 0
-      maintainPelvisPosition: 0.2
+      maintainPelvisPosition: 0
       chestGoal: {fileID: 0}
       chestGoalWeight: 0
       chestClampWeight: 0.5
@@ -2407,7 +2407,7 @@ MonoBehaviour:
       swivelOffset: 0
       wristToPalmAxis: {x: 0, y: 1, z: 0}
       palmToThumbAxis: {x: 1, y: 0, z: 0}
-      armLengthMlp: 1
+      armLengthMlp: 1.1
       stretchCurve:
         serializedVersion: 2
         m_Curve: []
@@ -2429,7 +2429,7 @@ MonoBehaviour:
       swivelOffset: 0
       wristToPalmAxis: {x: 0, y: 1, z: 0}
       palmToThumbAxis: {x: -1, y: -0, z: -0}
-      armLengthMlp: 1
+      armLengthMlp: 1.1
       stretchCurve:
         serializedVersion: 2
         m_Curve: []
@@ -2597,6 +2597,24 @@ MonoBehaviour:
   animator: {fileID: 2232032453536985028}
   ik: {fileID: 2232032453536985019}
   avatarModelHeight: 1.62
+  calibrateAction:
+    m_Name: Calibrate
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f6a05f4c-68ac-4eb8-8c29-f85eceb08ac3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 1c85d488-493b-4c80-bf11-56dc676edf20
+      m_Path: <OculusTouchController>/secondaryButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Calibrate
+      m_Flags: 0
+    m_Flags: 0
+  recenter: {fileID: 0}
   isScaled: 0
 --- !u!1 &2232032453546741567
 GameObject:

@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Recenter : MonoBehaviour
 {
+    public GameObject headPlaceHolder;
+    public GameObject leftHandPlaceHolder;
+    public GameObject rightHandPlaceHolder;
+
     // Start is called before the first frame update
-    void Awake()
+    public void HidePlaceHolders()
     {
-        UnityEngine.XR.InputTracking.Recenter();
+        headPlaceHolder.SetActive(false);
+        leftHandPlaceHolder.SetActive(false);
+        rightHandPlaceHolder.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ShowPlaceHolders()
     {
-        
+        headPlaceHolder.SetActive(true);
+        leftHandPlaceHolder.SetActive(true);
+        rightHandPlaceHolder.SetActive(true);
     }
 }
