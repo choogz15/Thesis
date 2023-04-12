@@ -18,7 +18,7 @@ public class CallSync : RealtimeComponent<CallSyncModel>
         if (currentModel != null)
         {
             if (currentModel.isFreshModel)
-                currentModel.dialingPlayer = 0;
+                currentModel.dialingPlayer = -1;
 
             UpdateDialingIndicator();
 
@@ -33,12 +33,13 @@ public class CallSync : RealtimeComponent<CallSyncModel>
 
     private void UpdateDialingIndicator()
     {
-        bool showIndicator = model.dialingPlayer == 0 ? false : true;
+        bool showIndicator = model.dialingPlayer < 0 ? false : true;
         dialingIndicator.SetActive(showIndicator);
     }
 
-    public void CallOtherPlayer()
+    public void CallOtherPlayer(int playerID)
     {
-        model.dialingPlayer = 1;
+        model.dialingPlayer = playerID;
+        Debug.Log("[CallSync: CallOtherPlayer()]" + playerID);
     }
 }

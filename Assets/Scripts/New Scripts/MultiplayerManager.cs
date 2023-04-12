@@ -18,6 +18,8 @@ public class MultiplayerManager : MonoBehaviour
     [SerializeField] GameObject incomingCallMenu;
     [SerializeField] GameObject outgoingCallMenu;
 
+    public Button testButton;
+
     // Start is called before the first frame update
     private void OnEnable()
     {
@@ -33,15 +35,35 @@ public class MultiplayerManager : MonoBehaviour
     {
         if (isLocalAvatar)
         {
-            localAvatar = avatar;
+            localAvatar = avatar
         }
 
         else
         {
             otherAvatar = avatar;
-            otherAvatar.GetComponentInChildren<Button>().onClick.AddListener(localAvatar.GetComponent<CallSync>().CallOtherPlayer);
+            testButton = otherAvatar.GetComponentInChildren<Button>();
+
+            //Assigning MultiplayerManager.CallOtherPlayer as Listener instead of directly assigning CallSync.CallOtherPlayer because the localAvatar might no be instantiated before the remote Avatar.
+            testButton.onClick.AddListener(delegate { CallOtherPlayer(avatar.ownerIDInHierarchy); }) ;
+            
         }
 
+    }
+
+    public void CallOtherPlayer(int playerID)
+    {
+        if(localAvatar == null)
+        {
+            Debug.Log("local avatar is not yet ready");
+            return;
+        }
+
+        localAvatar.GetComponent<CallSync>().CallOtherPlayer(playerID);
+    }
+
+    public void TestFunction(int playerID)
+    {
+        Debug.Log("[MultiplayerManager:TestFunction()] " + playerID);
     }
 
     public void OnCallRequestAdded(int calleeID, int callerID)
