@@ -1,5 +1,102 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &116919542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 116919546}
+  - component: {fileID: 116919545}
+  - component: {fileID: 116919544}
+  - component: {fileID: 116919543}
+  m_Layer: 0
+  m_Name: DialingIndicator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &116919546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116919542}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.462, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 2232032452219692488}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &116919545
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116919542}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &116919544
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116919542}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &116919543
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116919542}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2232032452196385141
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,6 +205,8 @@ GameObject:
   - component: {fileID: 2232032452219692495}
   - component: {fileID: 2232032452219692494}
   - component: {fileID: 2232032452219692493}
+  - component: {fileID: 430314584}
+  - component: {fileID: 430314585}
   m_Layer: 0
   m_Name: VR Player Avatar Boy
   m_TagString: Untagged
@@ -131,6 +230,7 @@ Transform:
   - {fileID: 2232032452957854246}
   - {fileID: 2232032452942378105}
   - {fileID: 2232032453911932256}
+  - {fileID: 116919546}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -162,6 +262,8 @@ MonoBehaviour:
     component: {fileID: 0}
   - componentID: 4
     component: {fileID: 0}
+  - componentID: 5
+    component: {fileID: 430314585}
   _childViews:
   - componentID: 1
     component: {fileID: 2232032452942378107}
@@ -202,6 +304,55 @@ MonoBehaviour:
   _syncScale: 1
   _syncVelocity: 1
   _maintainOwnershipWhileSleeping: 0
+--- !u!114 &430314584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2232032452219692492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a3690331d508a84091c0e6d7ff32d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftController: {fileID: 0}
+  rightController: {fileID: 0}
+  animator: {fileID: 2232032453536985028}
+  ik: {fileID: 2232032453536985019}
+  avatarModelHeight: 1.62
+  calibrateAction:
+    m_Name: Calibrate
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f6a05f4c-68ac-4eb8-8c29-f85eceb08ac3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 1c85d488-493b-4c80-bf11-56dc676edf20
+      m_Path: <OculusTouchController>/secondaryButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Calibrate
+      m_Flags: 0
+    m_Flags: 0
+  recenter: {fileID: 0}
+  isScaled: 0
+--- !u!114 &430314585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2232032452219692492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a990014df94128043b266b95c0036286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialingIndicator: {fileID: 116919542}
 --- !u!1 &2232032452241084371
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,7 +2441,7 @@ Transform:
   m_GameObject: {fileID: 2232032453536985016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2232032453187660098}
@@ -2445,7 +2596,7 @@ MonoBehaviour:
       bendGoalWeight: 0
       swivelOffset: 0
       bendToTargetWeight: 0.5
-      legLengthMlp: 1
+      legLengthMlp: 1.05
       stretchCurve:
         serializedVersion: 2
         m_Curve: []
@@ -2462,7 +2613,7 @@ MonoBehaviour:
       bendGoalWeight: 0
       swivelOffset: 0
       bendToTargetWeight: 0.5
-      legLengthMlp: 1
+      legLengthMlp: 1.05
       stretchCurve:
         serializedVersion: 2
         m_Curve: []
@@ -2473,7 +2624,7 @@ MonoBehaviour:
     locomotion:
       mode: 1
       weight: 1
-      moveThreshold: 0.3
+      moveThreshold: 0.15
       animationHeader: 0
       minAnimationSpeed: 0.2
       maxAnimationSpeed: 3
@@ -2483,7 +2634,7 @@ MonoBehaviour:
       rootLerpSpeedWhileMoving: 30
       rootLerpSpeedWhileStopping: 10
       rootLerpSpeedWhileTurning: 10
-      maxRootOffset: 0.5
+      maxRootOffset: 0.3
       rootRotationHeader: 0
       maxRootAngleMoving: 10
       maxRootAngleStanding: 90

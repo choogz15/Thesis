@@ -14,7 +14,7 @@ public class MultiplayerManager : MonoBehaviour
 
     [SerializeField] private RealtimeAvatarManager realtimeAvatarManager;
 
-    [SerializeField] private CallRequestboardSync callRequestboardSync;
+    //[SerializeField] private CallRequestboardSync callRequestboardSync;
     [SerializeField] GameObject incomingCallMenu;
     [SerializeField] GameObject outgoingCallMenu;
 
@@ -39,15 +39,9 @@ public class MultiplayerManager : MonoBehaviour
         else
         {
             otherAvatar = avatar;
-            otherAvatar.GetComponentInChildren<Button>().onClick.AddListener(CallOtherPlayer);
+            otherAvatar.GetComponentInChildren<Button>().onClick.AddListener(localAvatar.GetComponent<CallSync>().CallOtherPlayer);
         }
 
-    }
-
-    public void CallOtherPlayer()
-    {
-        callRequestboardSync.MakeCallRequest(otherAvatar.ownerIDInHierarchy, localAvatar.ownerIDInHierarchy);
-        Debug.Log("[MultiplayerManager:CallOtherPlayer");
     }
 
     public void OnCallRequestAdded(int calleeID, int callerID)
