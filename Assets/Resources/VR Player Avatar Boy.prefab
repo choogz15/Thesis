@@ -337,7 +337,6 @@ MonoBehaviour:
       m_Action: Calibrate
       m_Flags: 0
     m_Flags: 0
-  recenter: {fileID: 0}
   isScaled: 0
 --- !u!114 &430314585
 MonoBehaviour:
@@ -352,6 +351,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialingIndicator: {fileID: 116919542}
+  callButton: {fileID: 2232032453360163631}
+  dialingPlayerChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2232032452241084371
 GameObject:
   m_ObjectHideFlags: 0
@@ -2131,7 +2134,7 @@ GameObject:
   - component: {fileID: 2232032453360163624}
   - component: {fileID: 2232032453360163631}
   m_Layer: 0
-  m_Name: Button
+  m_Name: Call Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2239,19 +2242,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2232032453360163624}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MultiplayerManager, Assembly-CSharp
-        m_MethodName: CallOtherPlayer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &2232032453381855104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2423,7 +2414,6 @@ GameObject:
   - component: {fileID: 2232032453536985017}
   - component: {fileID: 2232032453536985028}
   - component: {fileID: 2232032453536985019}
-  - component: {fileID: 2232032453536985018}
   m_Layer: 0
   m_Name: Boy
   m_TagString: Untagged
@@ -2731,42 +2721,6 @@ MonoBehaviour:
       onRightFootstep:
         m_PersistentCalls:
           m_Calls: []
---- !u!114 &2232032453536985018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2232032453536985016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a3690331d508a84091c0e6d7ff32d3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftController: {fileID: 0}
-  rightController: {fileID: 0}
-  animator: {fileID: 2232032453536985028}
-  ik: {fileID: 2232032453536985019}
-  avatarModelHeight: 1.62
-  calibrateAction:
-    m_Name: Calibrate
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: f6a05f4c-68ac-4eb8-8c29-f85eceb08ac3
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 1c85d488-493b-4c80-bf11-56dc676edf20
-      m_Path: <OculusTouchController>/secondaryButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Calibrate
-      m_Flags: 0
-    m_Flags: 0
-  recenter: {fileID: 0}
-  isScaled: 0
 --- !u!1 &2232032453546741567
 GameObject:
   m_ObjectHideFlags: 0

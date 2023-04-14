@@ -16,8 +16,6 @@ public class HandPoseAnimator : MonoBehaviour
 
     public InputAction calibrateAction;
 
-    public Recenter recenter;
-
 
     public bool isScaled = false;
 
@@ -25,7 +23,6 @@ public class HandPoseAnimator : MonoBehaviour
     {
         leftController = GameObject.Find("LeftHand Controller").GetComponent<ActionBasedController>();
         rightController = GameObject.Find("RightHand Controller").GetComponent<ActionBasedController>();
-        recenter = GameObject.Find("XR Origin").GetComponent<Recenter>();
 
         calibrateAction.performed += CalibrateAvatar;
 
@@ -66,7 +63,6 @@ public class HandPoseAnimator : MonoBehaviour
         //ik.references.root.localScale *= sizeF;
         ik.references.root.localScale = Vector3.one * sizeF;
         Debug.Log("Scaling avatar");
-        recenter.HidePlaceHolders();
     }
 
     void ScaleAvatar()
