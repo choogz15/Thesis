@@ -83,7 +83,7 @@ public class MultiplayerManager : MonoBehaviour
         if (calleeID == localAvatar.ownerIDInHierarchy)
         {
             ShowIncomingCallMenu();
-            localAvatar.GetComponent<CallSync>().dialerPlayer = callerID;
+            localAvatar.GetComponent<CallSync>().SetDialerPlayer(callerID);
         }
     }
 

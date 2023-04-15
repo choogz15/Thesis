@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1806,7 +1806,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   realtimeAvatarManager: {fileID: 325829804}
   incomingCallMenu: {fileID: 1640751824}
+  incomingCallMenuAcceptButton: {fileID: 1889505002}
+  incomingCallMenuRejectButton: {fileID: 1475895215}
   outgoingCallMenu: {fileID: 280862061}
+  outgoingCallMenuCancelButton: {fileID: 29639666}
 --- !u!1 &335837378
 GameObject:
   m_ObjectHideFlags: 0

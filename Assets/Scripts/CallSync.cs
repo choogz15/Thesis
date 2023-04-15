@@ -19,14 +19,13 @@ public class CallSync : RealtimeComponent<CallSyncModel>
     public class DialingPlayerChangeEvent : UnityEvent<CallSyncModel, int, int> { }     //<model, calleeID, callerID>
     public DialingPlayerChangeEvent dialingPlayerChangedEvent;
 
-    public int dialerPlayer;    //It seems that this doesnt need to be networked.
-
 
     protected override void OnRealtimeModelReplaced(CallSyncModel previousModel, CallSyncModel currentModel)
     {
         if (previousModel != null)
         {
             previousModel.dialingPlayerDidChange -= DialingPlayerDidChange;
+            previousModel.dialerPlayerDidChange -= DialerPlayerDidChange;
         }
 
         if (currentModel != null)
@@ -34,25 +33,28 @@ public class CallSync : RealtimeComponent<CallSyncModel>
             if (currentModel.isFreshModel)
             {
                 currentModel.dialingPlayer = -1;
+                currentModel.dialerPlayer = -1;
             }
 
 
             UpdateDialingIndicator();
+            UpdateCallButton();
 
             currentModel.dialingPlayerDidChange += DialingPlayerDidChange;
-
+            currentModel.dialerPlayerDidChange += DialerPlayerDidChange;
         }
     }
 
-    private void DialerPlayerDidChange(CallSyncModel model, int value)
-    {
-        throw new NotImplementedException();
-    }
 
     private void DialingPlayerDidChange(CallSyncModel model, int value)
     {
         UpdateDialingIndicator();
         dialingPlayerChangedEvent.Invoke(model, value, ownerIDInHierarchy);
+    }
+
+    private void DialerPlayerDidChange(CallSyncModel model, int value)
+    {
+        UpdateCallButton();
     }
 
     private void UpdateDialingIndicator()
@@ -61,19 +63,42 @@ public class CallSync : RealtimeComponent<CallSyncModel>
         dialingIndicator.SetActive(showIndicator);
     }
 
+    private void UpdateCallButton()
+    {
+        if (model.dialerPlayer < 0) EnableCallButton();
+        else DisableCallButton();
+    }
+
+    private void DisableCallButton()
+    {
+        callButton.GetComponentInChildren<Text>().text = "Busy";
+        callButton.interactable = false;
+    }
+
+    private void EnableCallButton()
+    {
+        callButton.GetComponentInChildren<Text>().text = "Call";
+        callButton.interactable = true;
+    }
+
     public void CallOtherPlayer(int playerID)
     {
         model.dialingPlayer = playerID;
     }
 
+    public void SetDialerPlayer(int playerID)
+    {
+        model.dialerPlayer = playerID;
+    }
+
     public void AcceptCall()
     {
-        model.talkingPlayer = dialerPlayer;
-        dialerPlayer = -1;
+        model.talkingPlayer = model.dialerPlayer;
+        model.dialerPlayer = -1;
     }
 
     public void RejectCall()
     {
-        dialerPlayer = -1;
+        model.dialerPlayer = -1;
     }
 }
