@@ -9,6 +9,7 @@ public partial class CallSyncModel
 {
     [RealtimeProperty(1, true, true)] private int _dialingPlayer;
     [RealtimeProperty(2, true, true)] private int _dialerPlayer;
+    [RealtimeProperty(3, true, true)] private int _playerID;
     [RealtimeProperty(4, true, true)] private int _talkingPlayer;
 }
 
@@ -38,6 +39,18 @@ public partial class CallSyncModel : RealtimeModel {
         }
     }
     
+    public int playerID {
+        get {
+            return _playerIDProperty.value;
+        }
+        set {
+            if (_playerIDProperty.value == value) return;
+            _playerIDProperty.value = value;
+            InvalidateReliableLength();
+            FirePlayerIDDidChange(value);
+        }
+    }
+    
     public int talkingPlayer {
         get {
             return _talkingPlayerProperty.value;
@@ -53,11 +66,13 @@ public partial class CallSyncModel : RealtimeModel {
     public delegate void PropertyChangedHandler<in T>(CallSyncModel model, T value);
     public event PropertyChangedHandler<int> dialingPlayerDidChange;
     public event PropertyChangedHandler<int> dialerPlayerDidChange;
+    public event PropertyChangedHandler<int> playerIDDidChange;
     public event PropertyChangedHandler<int> talkingPlayerDidChange;
     
     public enum PropertyID : uint {
         DialingPlayer = 1,
         DialerPlayer = 2,
+        PlayerID = 3,
         TalkingPlayer = 4,
     }
     
@@ -67,6 +82,8 @@ public partial class CallSyncModel : RealtimeModel {
     
     private ReliableProperty<int> _dialerPlayerProperty;
     
+    private ReliableProperty<int> _playerIDProperty;
+    
     private ReliableProperty<int> _talkingPlayerProperty;
     
     #endregion
@@ -74,12 +91,14 @@ public partial class CallSyncModel : RealtimeModel {
     public CallSyncModel() : base(null) {
         _dialingPlayerProperty = new ReliableProperty<int>(1, _dialingPlayer);
         _dialerPlayerProperty = new ReliableProperty<int>(2, _dialerPlayer);
+        _playerIDProperty = new ReliableProperty<int>(3, _playerID);
         _talkingPlayerProperty = new ReliableProperty<int>(4, _talkingPlayer);
     }
     
     protected override void OnParentReplaced(RealtimeModel previousParent, RealtimeModel currentParent) {
         _dialingPlayerProperty.UnsubscribeCallback();
         _dialerPlayerProperty.UnsubscribeCallback();
+        _playerIDProperty.UnsubscribeCallback();
         _talkingPlayerProperty.UnsubscribeCallback();
     }
     
@@ -99,6 +118,14 @@ public partial class CallSyncModel : RealtimeModel {
         }
     }
     
+    private void FirePlayerIDDidChange(int value) {
+        try {
+            playerIDDidChange?.Invoke(this, value);
+        } catch (System.Exception exception) {
+            UnityEngine.Debug.LogException(exception);
+        }
+    }
+    
     private void FireTalkingPlayerDidChange(int value) {
         try {
             talkingPlayerDidChange?.Invoke(this, value);
@@ -111,6 +138,7 @@ public partial class CallSyncModel : RealtimeModel {
         var length = 0;
         length += _dialingPlayerProperty.WriteLength(context);
         length += _dialerPlayerProperty.WriteLength(context);
+        length += _playerIDProperty.WriteLength(context);
         length += _talkingPlayerProperty.WriteLength(context);
         return length;
     }
@@ -119,6 +147,7 @@ public partial class CallSyncModel : RealtimeModel {
         var writes = false;
         writes |= _dialingPlayerProperty.Write(stream, context);
         writes |= _dialerPlayerProperty.Write(stream, context);
+        writes |= _playerIDProperty.Write(stream, context);
         writes |= _talkingPlayerProperty.Write(stream, context);
         if (writes) InvalidateContextLength(context);
     }
@@ -136,6 +165,11 @@ public partial class CallSyncModel : RealtimeModel {
                 case (uint) PropertyID.DialerPlayer: {
                     changed = _dialerPlayerProperty.Read(stream, context);
                     if (changed) FireDialerPlayerDidChange(dialerPlayer);
+                    break;
+                }
+                case (uint) PropertyID.PlayerID: {
+                    changed = _playerIDProperty.Read(stream, context);
+                    if (changed) FirePlayerIDDidChange(playerID);
                     break;
                 }
                 case (uint) PropertyID.TalkingPlayer: {
@@ -158,6 +192,7 @@ public partial class CallSyncModel : RealtimeModel {
     private void UpdateBackingFields() {
         _dialingPlayer = dialingPlayer;
         _dialerPlayer = dialerPlayer;
+        _playerID = playerID;
         _talkingPlayer = talkingPlayer;
     }
     

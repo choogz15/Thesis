@@ -5,6 +5,7 @@ using Normal.Realtime;
 using System;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using TMPro;
 
 public class CallSync : RealtimeComponent<CallSyncModel>
 {
@@ -14,18 +15,19 @@ public class CallSync : RealtimeComponent<CallSyncModel>
     //The button on top of the player's avatar to be clicked to initiate a private talk
     public Button callButton;
 
-    [Serializable] public class DialingPlayerChangeEvent : UnityEvent<CallSyncModel, int, int> { }     //<model, calleeID, callerID>
-    [Serializable] public class TalkingPlayerChangeEvent : UnityEvent<CallSyncModel, int, int> { }
+    [Serializable] public class CallEvent : UnityEvent<CallSyncModel, int> { }
 
+    public CallEvent incomingCallAccepted;
+    public CallEvent incomingCallRejected;
+    public CallEvent outgoingCallCancelled;
+    public CallEvent outgoingCallRequested;
+    public CallEvent incomingCallRequested;
+    public CallEvent incomingCallCancelled;
 
-    public DialingPlayerChangeEvent dialingPlayerChangedEvent;
-    public TalkingPlayerChangeEvent talkingPlayerChangedEvent;
-
-    //Just to see in inspector
+    //For debugging in inspector
     public Color dialingPlayerColor;
     public Color dialerPlayerColor;
     public Color talkingPlayerColor;
-
     public int talkingWithPlayer;
 
     protected override void OnRealtimeModelReplaced(CallSyncModel previousModel, CallSyncModel currentModel)
@@ -34,7 +36,6 @@ public class CallSync : RealtimeComponent<CallSyncModel>
         {
             previousModel.dialingPlayerDidChange -= DialingPlayerDidChange;
             previousModel.dialerPlayerDidChange -= DialerPlayerDidChange;
-
             previousModel.talkingPlayerDidChange -= TalkingPlayerDidChange;
 
         }
@@ -45,7 +46,6 @@ public class CallSync : RealtimeComponent<CallSyncModel>
             {
                 currentModel.dialingPlayer = -1;
                 currentModel.dialerPlayer = -1;
-
                 currentModel.talkingPlayer = -1;
             }
             UpdateDialerIndicator();
@@ -60,7 +60,17 @@ public class CallSync : RealtimeComponent<CallSyncModel>
     private void TalkingPlayerDidChange(CallSyncModel model, int value)
     {
         UpdateTalkingIndicator();
-        talkingPlayerChangedEvent.Invoke(model, value, ownerIDInHierarchy);
+        if (value >= 0)
+        { 
+            if (model.dialingPlayer > 0)
+            {
+                model.dialingPlayer = -1;
+            }
+            else
+            {
+                incomingCallAccepted.Invoke(model, value);
+            }
+        } 
     }
 
     private void UpdateTalkingIndicator()
@@ -75,12 +85,15 @@ public class CallSync : RealtimeComponent<CallSyncModel>
     private void DialingPlayerDidChange(CallSyncModel model, int value)
     {
         UpdateDialingIndicator();
-        dialingPlayerChangedEvent.Invoke(model, value, ownerIDInHierarchy);
+        if (value >= 0) outgoingCallRequested.Invoke(model, value);
+        else if(value < 0 && model.talkingPlayer < 0)outgoingCallCancelled.Invoke(model, value);
     }
 
     private void DialerPlayerDidChange(CallSyncModel model, int value)
     {
-        UpdateCallButton();
+        UpdateDialerIndicator();
+        if (value >= 0) incomingCallRequested.Invoke(model, value);
+        else incomingCallCancelled.Invoke(model, value);
     }
 
     private void UpdateDialingIndicator()
@@ -99,56 +112,74 @@ public class CallSync : RealtimeComponent<CallSyncModel>
     {
         bool showIndicator = model.dialerPlayer >= 0 || model.dialingPlayer >= 0 || model.talkingPlayer >= 0;
         busyIndicator.SetActive(showIndicator);
-    }
 
-    private void UpdateCallButton()
-    {
-        if (model.dialerPlayer < 0) EnableCallButton();
-        else DisableCallButton();
+        if (showIndicator)
+        {
+            DisableCallButton();
+        }
+        else
+        {
+            EnableCallButton();
+        }
     }
 
     private void DisableCallButton()
     {
-        callButton.GetComponentInChildren<Text>().text = "Busy";
+        callButton.GetComponentInChildren<TextMeshProUGUI>().text = "Busy";
         callButton.interactable = false;
     }
 
     private void EnableCallButton()
     {
-        callButton.GetComponentInChildren<Text>().text = "Call";
+        callButton.GetComponentInChildren<TextMeshProUGUI>().text = "Call";
         callButton.interactable = true;
     }
 
-    public void CallOtherPlayer(int playerID)
+    public void MakeOutgoingCall(int playerID)
     {
         model.dialingPlayer = playerID;
+        Debug.Log("Make outgoing call");
     }
 
-    public void SetDialerPlayer(int playerID)
+    public void CancelOutgoingCall()
+    {
+        model.dialingPlayer = -1;
+    }
+
+    public void IncomingCallReceived(int playerID)
     {
         model.dialerPlayer = playerID;
     }
 
-    public void AcceptCall()
+    public void IncomingCallCancelled()
+    {
+        model.dialerPlayer = -1;
+    }
+
+    public void OutgoingCallAccepted()
+    {
+        model.talkingPlayer = model.dialingPlayer;
+        model.dialingPlayer = -1;
+    }
+
+    public void OutgoingCallRejected()
+    {
+        model.dialingPlayer = -1;
+    }
+
+    public void AcceptIncomingCall()
     {
         model.talkingPlayer = model.dialerPlayer;
-        model.dialerPlayer = -1;
-        SetDialerPlayer(-1);
-
     }
 
-    public void RejectCall()
+    public void RejectIncomingCall()
     {
         model.dialerPlayer = -1;
-        SetDialerPlayer(-1);
     }
 
-    public void CallAccepted()
+    public void EndOnGoingCall()
     {
-
+        model.talkingPlayer = -1;
     }
 
-    public void CallRejected()
-    {
-    }
 }
