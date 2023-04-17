@@ -73,10 +73,6 @@ public class MultiplayerManager : MonoBehaviour
         {
             localAvatar.GetComponent<CallSync>().SetDialerPlayer(callerID);
             ShowIncomingCallMenu();
-<<<<<<< Updated upstream
-            localAvatar.GetComponent<CallSync>().SetDialerPlayer(callerID);
-=======
->>>>>>> Stashed changes
         }
     }
 
