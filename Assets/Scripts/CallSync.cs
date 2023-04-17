@@ -9,16 +9,28 @@ using UnityEngine.UI;
 public class CallSync : RealtimeComponent<CallSyncModel>
 {
 
-    public GameObject dialingIndicator;
+    public GameObject busyIndicator;
 
     //The button on top of the player's avatar to be clicked to initiate a private talk
     public Button callButton;
 
+    [Serializable] public class DialingPlayerChangeEvent : UnityEvent<CallSyncModel, int, int> { }     //<model, calleeID, callerID>
+    [Serializable] public class TalkingPlayerChangeEvent : UnityEvent<CallSyncModel, int, int> { }
 
-    [Serializable]
-    public class DialingPlayerChangeEvent : UnityEvent<CallSyncModel, int, int> { }     //<model, calleeID, callerID>
+
     public DialingPlayerChangeEvent dialingPlayerChangedEvent;
+    public TalkingPlayerChangeEvent talkingPlayerChangedEvent;
 
+<<<<<<< Updated upstream
+=======
+
+    //Just to see in inspector
+    public Color dialingPlayerColor;
+    public Color dialerPlayerColor;
+    public Color talkingPlayerColor;
+
+    public int talkingWithPlayer;
+>>>>>>> Stashed changes
 
     protected override void OnRealtimeModelReplaced(CallSyncModel previousModel, CallSyncModel currentModel)
     {
@@ -26,6 +38,10 @@ public class CallSync : RealtimeComponent<CallSyncModel>
         {
             previousModel.dialingPlayerDidChange -= DialingPlayerDidChange;
             previousModel.dialerPlayerDidChange -= DialerPlayerDidChange;
+<<<<<<< Updated upstream
+=======
+            previousModel.talkingPlayerDidChange -= TalkingPlayerDidChange;
+>>>>>>> Stashed changes
         }
 
         if (currentModel != null)
@@ -34,10 +50,14 @@ public class CallSync : RealtimeComponent<CallSyncModel>
             {
                 currentModel.dialingPlayer = -1;
                 currentModel.dialerPlayer = -1;
+<<<<<<< Updated upstream
+=======
+                currentModel.talkingPlayer = -1;
+>>>>>>> Stashed changes
             }
 
-
             UpdateDialingIndicator();
+<<<<<<< Updated upstream
             UpdateCallButton();
 
             currentModel.dialingPlayerDidChange += DialingPlayerDidChange;
@@ -45,6 +65,31 @@ public class CallSync : RealtimeComponent<CallSyncModel>
         }
     }
 
+=======
+            UpdateDialerIndicator();
+            UpdateTalkingIndicator();
+
+            currentModel.dialingPlayerDidChange += DialingPlayerDidChange;
+            currentModel.dialerPlayerDidChange += DialerPlayerDidChange;
+            currentModel.talkingPlayerDidChange += TalkingPlayerDidChange;
+        }
+    }
+
+    private void TalkingPlayerDidChange(CallSyncModel model, int value)
+    {
+        UpdateTalkingIndicator();
+        talkingPlayerChangedEvent.Invoke(model, value, ownerIDInHierarchy);
+    }
+
+    private void UpdateTalkingIndicator()
+    {
+        talkingWithPlayer = model.talkingPlayer;    //Just for debugging
+
+        if (model.talkingPlayer >= 0) busyIndicator.GetComponent<MeshRenderer>().material.color = talkingPlayerColor;
+        UpdateBusyIndicator();
+
+    }
+>>>>>>> Stashed changes
 
     private void DialingPlayerDidChange(CallSyncModel model, int value)
     {
@@ -59,8 +104,26 @@ public class CallSync : RealtimeComponent<CallSyncModel>
 
     private void UpdateDialingIndicator()
     {
-        bool showIndicator = model.dialingPlayer < 0 ? false : true;
-        dialingIndicator.SetActive(showIndicator);
+        if (model.dialingPlayer >= 0) busyIndicator.GetComponent<MeshRenderer>().material.color = dialingPlayerColor;
+        UpdateBusyIndicator();
+    }
+
+    private void DialerPlayerDidChange(CallSyncModel model, int value)
+    {
+        UpdateDialerIndicator();
+        Debug.Log("DialerPlayerDidChange");
+    }
+
+    private void UpdateDialerIndicator()
+    {
+        if (model.dialerPlayer >= 0) busyIndicator.GetComponent<MeshRenderer>().material.color = dialerPlayerColor;
+        UpdateBusyIndicator();
+    }
+
+    private void UpdateBusyIndicator()
+    {
+        bool showIndicator = model.dialerPlayer >= 0 || model.dialingPlayer >= 0 || model.talkingPlayer >= 0;
+        busyIndicator.SetActive(showIndicator);
     }
 
     private void UpdateCallButton()
@@ -94,11 +157,29 @@ public class CallSync : RealtimeComponent<CallSyncModel>
     public void AcceptCall()
     {
         model.talkingPlayer = model.dialerPlayer;
+<<<<<<< Updated upstream
         model.dialerPlayer = -1;
+=======
+        SetDialerPlayer(-1);
+>>>>>>> Stashed changes
     }
 
     public void RejectCall()
     {
+<<<<<<< Updated upstream
         model.dialerPlayer = -1;
+=======
+        SetDialerPlayer(-1);
+    }
+
+    public void CallAccepted()
+    {
+
+    }
+
+    public void CallRejected()
+    {
+
+>>>>>>> Stashed changes
     }
 }

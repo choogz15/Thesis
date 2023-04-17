@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 116919544}
   - component: {fileID: 116919543}
   m_Layer: 0
-  m_Name: DialingIndicator
+  m_Name: BusyIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &116919546
 Transform:
   m_ObjectHideFlags: 0
@@ -350,11 +350,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a990014df94128043b266b95c0036286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialingIndicator: {fileID: 116919542}
+  busyIndicator: {fileID: 116919542}
   callButton: {fileID: 2232032453360163631}
   dialingPlayerChangedEvent:
     m_PersistentCalls:
       m_Calls: []
+  dialingPlayerColor: {r: 0.06530861, g: 0.9811321, b: 0.023139905, a: 0}
+  dialerPlayerColor: {r: 0.06941971, g: 0.16623072, b: 0.9811321, a: 0}
+  talkingPlayerColor: {r: 1, g: 0.008717222, b: 0, a: 0}
+  talkingWithPlayer: 0
 --- !u!1 &2232032452241084371
 GameObject:
   m_ObjectHideFlags: 0
