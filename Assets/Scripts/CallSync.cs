@@ -30,6 +30,7 @@ public class CallSync : RealtimeComponent<CallSyncModel>
     public Color talkingPlayerColor;
     public int talkingWithPlayer;
 
+
     protected override void OnRealtimeModelReplaced(CallSyncModel previousModel, CallSyncModel currentModel)
     {
         if (previousModel != null)
@@ -61,7 +62,7 @@ public class CallSync : RealtimeComponent<CallSyncModel>
     {
         UpdateTalkingIndicator();
         if (value >= 0)
-        { 
+        {
             if (model.dialingPlayer > 0)
             {
                 model.dialingPlayer = -1;
@@ -70,7 +71,7 @@ public class CallSync : RealtimeComponent<CallSyncModel>
             {
                 incomingCallAccepted.Invoke(model, value);
             }
-        } 
+        }
     }
 
     private void UpdateTalkingIndicator()
@@ -86,7 +87,7 @@ public class CallSync : RealtimeComponent<CallSyncModel>
     {
         UpdateDialingIndicator();
         if (value >= 0) outgoingCallRequested.Invoke(model, value);
-        else if(value < 0 && model.talkingPlayer < 0)outgoingCallCancelled.Invoke(model, value);
+        else if (value < 0 && model.talkingPlayer < 0) outgoingCallCancelled.Invoke(model, value);
     }
 
     private void DialerPlayerDidChange(CallSyncModel model, int value)
@@ -135,10 +136,10 @@ public class CallSync : RealtimeComponent<CallSyncModel>
         callButton.interactable = true;
     }
 
+
     public void MakeOutgoingCall(int playerID)
     {
         model.dialingPlayer = playerID;
-        Debug.Log("Make outgoing call");
     }
 
     public void CancelOutgoingCall()
