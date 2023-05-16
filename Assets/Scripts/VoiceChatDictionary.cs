@@ -47,13 +47,16 @@ public class VoiceChatDictionary : RealtimeComponent<VoiceChatDictionaryModel>
         if (previousModel != null)
         {
             previousModel.players.modelAdded -= voiceChatAdded;
+            previousModel.players.modelRemoved -= voiceChatRemoved;
         }
 
         if (currentModel != null)
         {
             currentModel.players.modelAdded += voiceChatAdded;
+            currentModel.players.modelRemoved += voiceChatRemoved;
         }
     }
+
 
     private void voiceChatAdded(RealtimeDictionary<VoiceChatModel> dictionary, uint key, VoiceChatModel model, bool remote)
     {
@@ -71,6 +74,20 @@ public class VoiceChatDictionary : RealtimeComponent<VoiceChatDictionaryModel>
 
     }
 
+    private void voiceChatRemoved(RealtimeDictionary<VoiceChatModel> dictionary, uint key, VoiceChatModel model, bool remote)
+    {
+        if (key != realtimeAvatarManager.localAvatar.ownerIDInHierarchy && model.pairID != realtimeAvatarManager.localAvatar.ownerIDInHierarchy)
+        {
+            realtimeAvatarManager.avatars[(int)key].GetComponentInChildren<RealtimeAvatarVoice>().mute = false;
+            realtimeAvatarManager.avatars[model.pairID].GetComponentInChildren<RealtimeAvatarVoice>().mute = false;
+        }
+
+        if (key == realtimeAvatarManager.localAvatar.ownerIDInHierarchy || model.pairID == realtimeAvatarManager.localAvatar.ownerIDInHierarchy)
+        {
+            PrivateVoiceChatEnded();
+        }
+    }
+
     public void PrivateVoiceChatStarted()
     {
         ShowOngoingCallmenu();
@@ -78,7 +95,7 @@ public class VoiceChatDictionary : RealtimeComponent<VoiceChatDictionaryModel>
 
     public void PrivateVoiceChatEnded()
     {
-
+        HideOngoingCallMenu();
     }
 
     public void MakeOutgoingCall(int playerID)
@@ -92,6 +109,12 @@ public class VoiceChatDictionary : RealtimeComponent<VoiceChatDictionaryModel>
         //Make check if there is already an incoming call
         AddPlayerToDict(senderID, receiverID, 0);
     }
+
+    public void EndOngoingCall()
+    {
+        RemovePlayerFromDict(realtimeAvatarManager.localAvatar.ownerIDInHierarchy);
+    }
+
     private void AddPlayerToDict(int senderID, int receiverID, int status)
     {
         VoiceChatModel voiceChat = new VoiceChatModel();
@@ -100,7 +123,37 @@ public class VoiceChatDictionary : RealtimeComponent<VoiceChatDictionaryModel>
         model.players.Add((uint)senderID, voiceChat);
     }
 
+    private void RemovePlayerFromDict(int playerID)
+    {
+        int key = GetKeyToRemove(playerID);
+        if(key == -1)
+        {
+            return;
+        }
 
+        model.players.Remove((uint)key);
+    }
+
+    private int GetKeyToRemove(int playerID)
+    {
+        if(model.players.ContainsKey((uint)playerID))
+        {
+            return playerID;
+        }
+
+        else
+        {
+            foreach(var entry in model.players)
+            {
+                if(entry.Value.pairID == playerID)
+                {
+                    return (int)entry.Key;
+                }
+            }
+        }
+
+        return -1;
+    }
 
     public void ShowIncomingCallMenu()
     {

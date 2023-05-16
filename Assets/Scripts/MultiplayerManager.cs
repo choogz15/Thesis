@@ -32,7 +32,7 @@ public class MultiplayerManager : MonoBehaviour
         incomingCallMenuAcceptButton.onClick.AddListener(AcceptIncomingCall);
         incomingCallMenuRejectButton.onClick.AddListener(RejectIncomingCall);
         outgoingCallMenuCancelButton.onClick.AddListener(CancelOutgoingCall);
-        ongoingCallMenuEndButton.onClick.AddListener(EndOngoingCall);
+        //ongoingCallMenuEndButton.onClick.AddListener(EndOngoingCall);
     }
 
     private void OnEnable()

@@ -206,8 +206,7 @@ GameObject:
   - component: {fileID: 2232032452219692494}
   - component: {fileID: 2232032452219692493}
   - component: {fileID: 430314584}
-  - component: {fileID: 430314585}
-  - component: {fileID: 2232032452441637255}
+  - component: {fileID: 2472044239697288925}
   m_Layer: 0
   m_Name: VR Player Avatar Boy
   m_TagString: Untagged
@@ -263,9 +262,11 @@ MonoBehaviour:
   - componentID: 4
     component: {fileID: 0}
   - componentID: 5
-    component: {fileID: 430314585}
+    component: {fileID: 0}
   - componentID: 6
-    component: {fileID: 2232032452441637255}
+    component: {fileID: 0}
+  - componentID: 7
+    component: {fileID: 2472044239697288925}
   _childViews:
   - componentID: 1
     component: {fileID: 2232032452942378107}
@@ -341,43 +342,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   isScaled: 0
---- !u!114 &430314585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2232032452219692492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a990014df94128043b266b95c0036286, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  busyIndicator: {fileID: 116919542}
-  callButton: {fileID: 2232032453360163631}
-  incomingCallAccepted:
-    m_PersistentCalls:
-      m_Calls: []
-  incomingCallRejected:
-    m_PersistentCalls:
-      m_Calls: []
-  outgoingCallCancelled:
-    m_PersistentCalls:
-      m_Calls: []
-  outgoingCallRequested:
-    m_PersistentCalls:
-      m_Calls: []
-  incomingCallRequested:
-    m_PersistentCalls:
-      m_Calls: []
-  incomingCallCancelled:
-    m_PersistentCalls:
-      m_Calls: []
-  dialingPlayerColor: {r: 0.06530861, g: 0.9811321, b: 0.023139905, a: 0}
-  dialerPlayerColor: {r: 0.06941971, g: 0.16623072, b: 0.9811321, a: 0}
-  talkingPlayerColor: {r: 1, g: 0.008717222, b: 0, a: 0}
-  talkingWithPlayer: 0
---- !u!114 &2232032452441637255
+--- !u!114 &2472044239697288925
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
