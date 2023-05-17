@@ -314,7 +314,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2232032452219692492}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a3690331d508a84091c0e6d7ff32d3f, type: 3}
   m_Name: 
@@ -357,6 +357,9 @@ MonoBehaviour:
   voice: {fileID: 0}
   voiceChatDictionary: {fileID: 0}
   callButton: {fileID: 2232032453360163631}
+  leftController: {fileID: 0}
+  rightController: {fileID: 0}
+  animator: {fileID: 2232032453536985028}
 --- !u!1 &2232032452241084371
 GameObject:
   m_ObjectHideFlags: 0
