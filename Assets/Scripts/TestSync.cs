@@ -19,13 +19,4 @@ public class TestSync : RealtimeComponent<TestModel>
 
     }
 
-    public void Mute()
-    {
-        voice.mute = true;
-    }
-
-    public void UnMute()
-    {
-        voice.mute = false;
-    }
 }

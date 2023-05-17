@@ -29,9 +29,9 @@ public class MultiplayerManager : MonoBehaviour
 
     private void Awake()
     {
-        incomingCallMenuAcceptButton.onClick.AddListener(AcceptIncomingCall);
-        incomingCallMenuRejectButton.onClick.AddListener(RejectIncomingCall);
-        outgoingCallMenuCancelButton.onClick.AddListener(CancelOutgoingCall);
+        //incomingCallMenuAcceptButton.onClick.AddListener(AcceptIncomingCall);
+        //incomingCallMenuRejectButton.onClick.AddListener(RejectIncomingCall);
+        //outgoingCallMenuCancelButton.onClick.AddListener(CancelOutgoingCall);
         //ongoingCallMenuEndButton.onClick.AddListener(EndOngoingCall);
     }
 
