@@ -180,6 +180,73 @@ public class VoiceChatDictionary : RealtimeComponent<VoiceChatDictionaryModel>
         AddPlayerToDict(senderID, receiverID, 0);
     }
 
+    public void MasterControlStartCall()
+    {
+        List<int> otherPlayers = GetOtherPlayersID();
+
+        int key = GetKey(otherPlayers[0]);
+
+        //If players are not yet in a call or no ongoing request
+        if (key == -1)
+        {
+            AddPlayerToDict(otherPlayers[0], otherPlayers[1],1);
+        }
+
+        else
+        {
+            VoiceChatModel voiceChat = model.players[(uint)key];
+
+            //If there is an ongoing request
+            if(voiceChat.status == 0)
+            {
+                VoiceChatModel newVoiceChat = new VoiceChatModel();
+                newVoiceChat.pairID = voiceChat.pairID;
+                newVoiceChat.status = 1;
+                model.players[(uint)key] = newVoiceChat;
+
+            }
+
+            //If they are already in a call
+            else if (voiceChat.status == 1)
+            {
+                return;
+            }
+        }
+
+    }
+
+    public void MasterControlEndCall()
+    {
+        List<int> otherPlayers = GetOtherPlayersID();
+
+        int key = GetKey(otherPlayers[0]);
+
+        if (key == -1)
+        {
+            return;
+        }
+
+        else
+        {
+            RemovePlayerFromDict(otherPlayers[0]);
+        }
+    }
+
+    private List<int> GetOtherPlayersID()
+    {
+        List<int> otherPlayers = new List<int>();
+
+        foreach (var avatar in realtimeAvatarManager.avatars)
+        {
+            if (!avatar.Value.isOwnedLocallyInHierarchy)
+            {
+                otherPlayers.Add(avatar.Value.ownerIDInHierarchy);
+            }
+        }
+
+        return otherPlayers;
+    }
+
     public void AcceptIncomingCall()
     {  
         int key = GetKey(realtimeAvatarManager.localAvatar.ownerIDInHierarchy);
