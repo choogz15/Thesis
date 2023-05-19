@@ -59,9 +59,9 @@ public class HandPoseAnimator : MonoBehaviour
 
     void CalibrateAvatar(InputAction.CallbackContext context)
     {
-        float sizeF = (ik.solver.spine.headTarget.position.y - ik.references.root.position.y) / avatarModelHeight;
-        //ik.references.root.localScale *= sizeF;
-        ik.references.root.localScale = Vector3.one * sizeF;
+        //float sizeF = (ik.solver.spine.headTarget.position.y - ik.references.root.position.y) / avatarModelHeight;
+        ////ik.references.root.localScale *= sizeF;
+        //ik.references.root.localScale = Vector3.one * sizeF;
         Debug.Log("Scaling avatar");
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using Normal.Realtime;
 using System;
 
+
 public class NPC : RealtimeComponent<NPCModel>
 {
     public Animator animator;

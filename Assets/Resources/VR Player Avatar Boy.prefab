@@ -360,6 +360,23 @@ MonoBehaviour:
   leftController: {fileID: 0}
   rightController: {fileID: 0}
   animator: {fileID: 2232032453536985028}
+  teleportAction:
+    m_Name: Teleport
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b2a09cc9-d4c5-4d94-a3c4-1f8011d4cb70
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 4029c93a-cc35-4144-b732-43a68d61ac45
+      m_Path: <XRController>/secondaryButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Teleport
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &2232032452241084371
 GameObject:
   m_ObjectHideFlags: 0
