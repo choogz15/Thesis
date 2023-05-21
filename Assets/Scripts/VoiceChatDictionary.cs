@@ -38,7 +38,7 @@ public class VoiceChatDictionary : RealtimeComponent<VoiceChatDictionaryModel>
 
         else
         {
-            avatar.GetComponent<TestSync>().callButton.onClick.AddListener(delegate { MakeOutgoingCall(avatar.ownerIDInHierarchy); });
+            //avatar.GetComponent<TestSync>().callButton.onClick.AddListener(delegate { MakeOutgoingCall(avatar.ownerIDInHierarchy); });
         }
     }
 

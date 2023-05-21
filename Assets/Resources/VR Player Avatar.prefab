@@ -3595,6 +3595,16 @@ MonoBehaviour:
   rightController: {fileID: 0}
   animator: {fileID: 2610025784219974215}
   ik: {fileID: 2610025784219974214}
+  avatarModelHeight: 0
+  calibrateAction:
+    m_Name: Calibrate
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: acf9f4c3-7d61-4be8-943f-a411bdba3713
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   isScaled: 0
 --- !u!1 &8796231450652054309
 GameObject:
