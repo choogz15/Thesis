@@ -39,15 +39,15 @@ public class TestSync : RealtimeComponent<TestModel>
         xrOrigin = GameObject.Find("XR Origin");
     }
 
-    private void OnEnable()
-    {
-        teleportAction.Enable();
-    }
+    //private void OnEnable()
+    //{
+    //    teleportAction.Enable();
+    //}
 
-    private void OnDisable()
-    {
-        teleportAction.Disable();
-    }
+    //private void OnDisable()
+    //{
+    //    teleportAction.Disable();
+    //}
 
     protected override void OnRealtimeModelReplaced(TestModel previousModel, TestModel currentModel)
     {
