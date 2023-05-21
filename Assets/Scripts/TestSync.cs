@@ -20,11 +20,6 @@ public class TestSync : RealtimeComponent<TestModel>
     public ActionBasedController rightController;
     public Animator animator;
 
-    public InputAction teleportAction;
-
-    public Transform teleportPosition;
-    public GameObject xrOrigin;
-
     private void Awake()
     {
         voice = GetComponentInChildren<RealtimeAvatarVoice>();
@@ -33,21 +28,8 @@ public class TestSync : RealtimeComponent<TestModel>
         leftController = GameObject.Find("LeftHand Controller").GetComponent<ActionBasedController>();
         rightController = GameObject.Find("RightHand Controller").GetComponent<ActionBasedController>();
 
-        teleportAction.performed += TeleportToPrivateRoom;
-
-        teleportPosition = GameObject.Find("Private Room Spawn Area").GetComponent<Transform>();
-        xrOrigin = GameObject.Find("XR Origin");
     }
 
-    //private void OnEnable()
-    //{
-    //    teleportAction.Enable();
-    //}
-
-    //private void OnDisable()
-    //{
-    //    teleportAction.Disable();
-    //}
 
     protected override void OnRealtimeModelReplaced(TestModel previousModel, TestModel currentModel)
     {
@@ -88,12 +70,6 @@ public class TestSync : RealtimeComponent<TestModel>
         UpdateLeftTrigger();
     }
 
-    void TeleportToPrivateRoom(InputAction.CallbackContext context)
-    {
-        Debug.Log("Teleporting to private room");
-        xrOrigin.transform.position = teleportPosition.position;
-
-    }
 
     private void Update()
     {
