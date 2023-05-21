@@ -13,7 +13,8 @@ public class JoinMenu : MonoBehaviour
     public XROrigin xrOrigin;
     public TextMeshProUGUI message;
     public InputAction teleportAction;
-    public GameObject panel;
+    public GameObject defaultPanel;
+    public GameObject loadingPanel;
     public Transform head;
     public float spawnDistance = 1;
 
@@ -39,7 +40,7 @@ public class JoinMenu : MonoBehaviour
 
     public void ToggleVisible(InputAction.CallbackContext context)
     {
-        panel.SetActive(!panel.activeSelf);
+        defaultPanel.SetActive(!defaultPanel.activeSelf);
     }
 
     private void Update()
@@ -47,7 +48,14 @@ public class JoinMenu : MonoBehaviour
         transform.position = head.position + new Vector3(head.forward.x, 0, head.forward.z).normalized * spawnDistance;
         transform.LookAt(new Vector3(head.position.x, transform.position.y, head.position.z));
         transform.forward *= -1;
+    }
 
+    public void JoinRoom()
+    {
+        defaultPanel.SetActive(false);
+        loadingPanel.SetActive(true);
+        teleportAction.Disable();
+        Invoke("Teleport", 2);
     }
 
     // Update is called once per frame
@@ -70,7 +78,7 @@ public class JoinMenu : MonoBehaviour
         }
 
         isInPublicRoom = !isInPublicRoom;
-        panel.SetActive(false);
-
+        loadingPanel.SetActive(false);
+        teleportAction.Enable();
     }
 }
