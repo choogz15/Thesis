@@ -15,6 +15,7 @@ public class TestSync : RealtimeComponent<TestModel>
     public VoiceChatDictionary voiceChatDictionary;
 
     public Button callButton;
+    public GameObject callUI;
 
     public ActionBasedController leftController;
     public ActionBasedController rightController;
@@ -48,6 +49,11 @@ public class TestSync : RealtimeComponent<TestModel>
             currentModel.triggerRightDidChange += TriggerRightDidChange;
             currentModel.gripRightDidChange += GripRightDidChange;
         }
+
+        if (isOwnedLocallyInHierarchy)
+        {
+            callUI.gameObject.SetActive(false);
+        }
     }
 
     private void GripRightDidChange(TestModel model, float value)
@@ -80,6 +86,7 @@ public class TestSync : RealtimeComponent<TestModel>
             model.triggerRight = rightController.activateAction.action.ReadValue<float>();
             model.gripRight = rightController.selectAction.action.ReadValue<float>();
         }
+
     }
 
     private void UpdateLeftTrigger()

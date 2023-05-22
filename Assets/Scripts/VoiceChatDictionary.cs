@@ -170,6 +170,10 @@ public class VoiceChatDictionary : RealtimeComponent<VoiceChatDictionaryModel>
 
     public void MakeOutgoingCall(int playerID)
     {
+        if(incomingCallMenu.activeSelf || outgoingCallMenu.activeSelf || ongoingCallMenu.activeSelf)
+        {
+            return;
+        }
         CreateCallRequest(realtimeAvatarManager.localAvatar.ownerIDInHierarchy, playerID);
     }
 
