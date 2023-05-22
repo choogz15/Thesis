@@ -10,6 +10,7 @@ public class StartMenu : MonoBehaviour
 {
     public string roomName;
     public int waitingForPlayers; //number of players before game starts
+    public float playerHeight;
     public GameObject[] avatarPanels;
     public GameObject[] avatarPrefabs;
     public GameObject[] xrControllerModels;
@@ -62,6 +63,8 @@ public class StartMenu : MonoBehaviour
 
     public void ConnectToGame()
     {
+        playerHeight = GameObject.Find("Main Camera").GetComponent<Transform>().position.y;
+
         defaultPanel.SetActive(false);
         waitingPanel.SetActive(true);
         realtimeAvatarManager.localAvatarPrefab = avatarPrefabs[selectedAvatar];

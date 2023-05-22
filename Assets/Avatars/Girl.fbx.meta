@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cd77649855cb2af45882ee7c6edf4d38
+guid: e0a3a0d97b0cab74a87b2779c36d0b49
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,33 +7,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Ch02_1001_Diffuse
-    second: {fileID: 2800000, guid: 995ffe6256618664190f71cebf9fffa2, type: 3}
+      name: Ch22_1001_Diffuse
+    second: {fileID: 2800000, guid: c74f2bf5840e0fa4388c001de22eb59a, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Ch02_1001_Glossiness
-    second: {fileID: 2800000, guid: 48c9a1f83d2d3bb4492aa432815eeff6, type: 3}
+      name: Ch22_1001_Glossiness
+    second: {fileID: 2800000, guid: f9845cb3fe23b7e4fa1752ebc314ead1, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Ch02_1001_Normal
-    second: {fileID: 2800000, guid: 1251e565ea1d7c14a8593b7d56d5e7fe, type: 3}
+      name: Ch22_1001_Normal
+    second: {fileID: 2800000, guid: 8e41aed2eb70af445b5fcfdf678e66ba, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Ch02_1001_Specular
-    second: {fileID: 2800000, guid: 85ca60b8a4ca86b4e963c3942aa95dea, type: 3}
+      name: Ch22_1001_Specular
+    second: {fileID: 2800000, guid: 63f6989f570f5254e81003a8d5e25ff1, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Ch02_1002_Diffuse
-    second: {fileID: 2800000, guid: c460bad4d9ffe444b974000bb331c8a8, type: 3}
+      name: Ch22_1002_Diffuse
+    second: {fileID: 2800000, guid: 517c17e024db85e49b1ecb3433504203, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Ch02_1002_Normal
-    second: {fileID: 2800000, guid: e59c04d7a9a2bc740815bdf79b3bcd17, type: 3}
+      name: Ch22_1002_Normal
+    second: {fileID: 2800000, guid: 760cc38cf31ba89439964e0607d57367, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

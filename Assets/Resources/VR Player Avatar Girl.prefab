@@ -401,6 +401,27 @@ MonoBehaviour:
   leftController: {fileID: 0}
   rightController: {fileID: 0}
   animator: {fileID: 2610025784219974215}
+  calibrateAction:
+    m_Name: Calibrate
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 4ef895ed-fda4-4b7c-81e0-7e17bc3fb0bf
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: fd1d436a-1a53-451d-851b-13fc602842ad
+      m_Path: <XRController>/primaryButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Calibrate
+      m_Flags: 0
+    m_Flags: 0
+  modelHeight: 0
+  localPlayerHead: {fileID: 0}
+  ik: {fileID: 2610025784219974214}
+  startMenu: {fileID: 0}
 --- !u!1 &1573471737031190
 GameObject:
   m_ObjectHideFlags: 0
@@ -3633,6 +3654,7 @@ GameObject:
   - component: {fileID: 2610025784219974215}
   - component: {fileID: 2610025784219974214}
   - component: {fileID: 5209715471857343866}
+  - component: {fileID: 3087154000503730084}
   m_Layer: 0
   m_Name: Megan
   m_TagString: Untagged
@@ -3788,7 +3810,7 @@ MonoBehaviour:
       swivelOffset: 0
       wristToPalmAxis: {x: 0, y: 1, z: 0}
       palmToThumbAxis: {x: -1, y: -0, z: -0}
-      armLengthMlp: 1
+      armLengthMlp: 1.1
       stretchCurve:
         serializedVersion: 2
         m_Curve: []
@@ -3804,7 +3826,7 @@ MonoBehaviour:
       bendGoalWeight: 0
       swivelOffset: 0
       bendToTargetWeight: 0.5
-      legLengthMlp: 1
+      legLengthMlp: 1.05
       stretchCurve:
         serializedVersion: 2
         m_Curve: []
@@ -3821,7 +3843,7 @@ MonoBehaviour:
       bendGoalWeight: 0
       swivelOffset: 0
       bendToTargetWeight: 0.5
-      legLengthMlp: 1
+      legLengthMlp: 1.05
       stretchCurve:
         serializedVersion: 2
         m_Curve: []
@@ -3832,7 +3854,7 @@ MonoBehaviour:
     locomotion:
       mode: 1
       weight: 1
-      moveThreshold: 0.3
+      moveThreshold: 0.15
       animationHeader: 0
       minAnimationSpeed: 0.2
       maxAnimationSpeed: 3
@@ -3842,7 +3864,7 @@ MonoBehaviour:
       rootLerpSpeedWhileMoving: 30
       rootLerpSpeedWhileStopping: 10
       rootLerpSpeedWhileTurning: 10
-      maxRootOffset: 0.5
+      maxRootOffset: 0.3
       rootRotationHeader: 0
       maxRootAngleMoving: 10
       maxRootAngleStanding: 90
@@ -3961,7 +3983,27 @@ MonoBehaviour:
   _components:
   - componentID: 1
     component: {fileID: 0}
+  - componentID: 2
+    component: {fileID: 3087154000503730084}
   _childViews: []
+--- !u!114 &3087154000503730084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8760434654655756935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1029778088, guid: c424820a8880b8845bda10ec0b41507e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolate: 1
+  _syncPosition: 0
+  _syncRotation: 0
+  _syncScale: 1
+  _syncVelocity: 1
+  _maintainOwnershipWhileSleeping: 0
 --- !u!1 &8796231450652054309
 GameObject:
   m_ObjectHideFlags: 0

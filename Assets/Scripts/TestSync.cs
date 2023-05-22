@@ -21,6 +21,14 @@ public class TestSync : RealtimeComponent<TestModel>
     public ActionBasedController rightController;
     public Animator animator;
 
+    public InputAction calibrateAction;
+    public float modelHeight;
+
+    public Transform localPlayerHead;
+    public VRIK ik;
+
+    public StartMenu startMenu;
+
     private void Awake()
     {
         voice = GetComponentInChildren<RealtimeAvatarVoice>();
@@ -28,9 +36,57 @@ public class TestSync : RealtimeComponent<TestModel>
 
         leftController = GameObject.Find("LeftHand Controller").GetComponent<ActionBasedController>();
         rightController = GameObject.Find("RightHand Controller").GetComponent<ActionBasedController>();
+        localPlayerHead = GameObject.Find("Main Camera").GetComponent<Transform>();
+        modelHeight = GameObject.Find("heightReference").GetComponent<Transform>().position.y;
+        startMenu = GameObject.Find("Starting Menu").GetComponent<StartMenu>();
+        calibrateAction.performed += CalibrateAvatar;
 
     }
 
+    private void Start()
+    {
+        if (isOwnedLocallyInHierarchy)
+        {
+            ik.gameObject.GetComponent<RealtimeTransform>().RequestOwnership();
+            ik.gameObject.GetComponent<RealtimeView>().RequestOwnership();
+            ScaleAvatar(startMenu.playerHeight);
+        }
+    }
+
+    private void DidConnectToRoom(Realtime realtime)
+    {
+        if (isOwnedLocallyInHierarchy)
+        {
+            
+        }
+    }
+
+    private void CalibrateAvatar(InputAction.CallbackContext context)
+    {
+        if (isOwnedLocallyInHierarchy)
+        {
+            ScaleAvatar(localPlayerHead.position.y);
+        }
+        
+    }
+
+    private void ScaleAvatar(float playerHeight)
+    {
+        float ratio = playerHeight / modelHeight;
+        //gameObject.transform.localScale = Vector3.one * ratio;
+        Debug.Log("Scaling avatar");
+        ik.references.root.localScale = Vector3.one * ratio;
+    }
+
+    private void OnEnable()
+    {
+        calibrateAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        calibrateAction.Disable();
+    }
 
     protected override void OnRealtimeModelReplaced(TestModel previousModel, TestModel currentModel)
     {
@@ -52,7 +108,7 @@ public class TestSync : RealtimeComponent<TestModel>
 
         if (isOwnedLocallyInHierarchy)
         {
-            callUI.gameObject.SetActive(false);
+            callUI.SetActive(false);
         }
     }
 
