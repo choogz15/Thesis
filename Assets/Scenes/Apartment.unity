@@ -7339,7 +7339,7 @@ MonoBehaviour:
   - {fileID: 321672339}
   avatarPrefabs:
   - {fileID: 1918367244937090292, guid: c0d201022101eb04c8bd461f5d61135d, type: 3}
-  - {fileID: 8643255895155437993, guid: ddc86508769651b4d9986635af38e952, type: 3}
+  - {fileID: 5798822013575067241, guid: 1f1f59533be6bac4d958a03780c5ed53, type: 3}
   xrControllerModels:
   - {fileID: 1571261428}
   - {fileID: 1940031972}
