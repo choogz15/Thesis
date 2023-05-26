@@ -1403,7 +1403,7 @@ MonoBehaviour:
       rotationWeight: 0
       bendGoal: {fileID: 0}
       bendGoalWeight: 0
-      swivelOffset: 0
+      swivelOffset: 44
       bendToTargetWeight: 0.5
       legLengthMlp: 1.05
       stretchCurve:
@@ -1420,7 +1420,7 @@ MonoBehaviour:
       rotationWeight: 0
       bendGoal: {fileID: 0}
       bendGoalWeight: 0
-      swivelOffset: 0
+      swivelOffset: -12
       bendToTargetWeight: 0.5
       legLengthMlp: 1.05
       stretchCurve:
