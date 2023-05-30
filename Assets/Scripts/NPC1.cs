@@ -19,6 +19,7 @@ public class NPC1 : RealtimeComponent<NPCModel1>
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+
     }
 
     protected override void OnRealtimeModelReplaced(NPCModel1 previousModel, NPCModel1 currentModel)
@@ -48,7 +49,11 @@ public class NPC1 : RealtimeComponent<NPCModel1>
 
     void Talk()
     {
-        audioSource.Play();
+        if (audioSource != null) 
+        {
+            audioSource.Play();
+        }
+
     }
 
     void UpdateConstraintWeight()

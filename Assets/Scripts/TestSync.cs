@@ -51,10 +51,13 @@ public class TestSync : RealtimeComponent<TestModel>
             ik.gameObject.GetComponent<RealtimeView>().RequestOwnership();
             ScaleAvatar(startMenu.playerHeight);
 
-            //Request ownership of headAim targets
-            if(realtime.clientID == 0)
+            //request ownership of headaim targets
+            if (realtime.clientID == 0)
             {
                 GameObject.Find("HeadAimTarget1").GetComponent<RealtimeTransform>().RequestOwnership();
+                GameObject.Find("HeadAimTarget2").GetComponent<RealtimeTransform>().RequestOwnership();
+                GameObject.Find("HeadAimTarget3").GetComponent<RealtimeTransform>().RequestOwnership();
+                GameObject.Find("HeadAimTarget4").GetComponent<RealtimeTransform>().RequestOwnership();
             }
         }
     }
