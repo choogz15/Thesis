@@ -65,7 +65,7 @@ public class MaleNPC1 : MonoBehaviour
         canSpeak = false;
         Invoke("EnableSpeak", speechInterval);
         target.GetComponent<HeadAimTarget>().follow = other.transform;
-        constraint.weight = 1;
+        //constraint.weight = 1;
         //transform.LookAt(new Vector3(other.transform.position.x, transform.position.y, other.transform.position.z), Vector3.up);
     }
 
@@ -73,6 +73,6 @@ public class MaleNPC1 : MonoBehaviour
     {
         Debug.Log("On Trigger Exit");
         target.GetComponent<HeadAimTarget>().follow = null;
-        constraint.weight = 0;
+        //constraint.weight = 0;
     }
 }
