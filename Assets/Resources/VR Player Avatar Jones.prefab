@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4390827082691440434}
   - component: {fileID: 1961252688955466548}
   - component: {fileID: 9193381202690102101}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 6238393900496689474}
   - component: {fileID: 6238393900496689475}
   - component: {fileID: 5682087477426141684}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -764,7 +764,7 @@ GameObject:
   - component: {fileID: 6238393900709792064}
   - component: {fileID: 6238393900709792065}
   - component: {fileID: 6238393900709792070}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Call Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1252,6 +1252,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 57eeea18e5d122b449ba29a8e337a246, type: 3}
   m_PrefabInstance: {fileID: 6848065376165056040}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &7227256356852164579
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6037179739950904185}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!65 &1730100986292833025
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1562,22 +1578,6 @@ MonoBehaviour:
   - componentID: 1
     component: {fileID: 6848065376165056036}
   _childViews: []
---- !u!54 &7227256356852164579
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6037179739950904185}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!4 &6272656234828355992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8645287641892448336, guid: 57eeea18e5d122b449ba29a8e337a246, type: 3}
