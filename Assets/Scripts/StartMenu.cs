@@ -22,6 +22,8 @@ public class StartMenu : MonoBehaviour
     private Realtime realtime;
     private RealtimeAvatarManager realtimeAvatarManager;
 
+    public AudioSource audio;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -40,6 +42,7 @@ public class StartMenu : MonoBehaviour
         if(waitingForPlayers == 0)
         {
             StartGame();
+            audio.Play();
         }
     }
 
