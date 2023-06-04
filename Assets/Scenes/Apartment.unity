@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.25080517, g: 0.14790076, b: 0.11852199, a: 1}
+  m_IndirectSpecularColor: {r: 0.25080642, g: 0.14790004, b: 0.118520275, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11539,7 +11539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomName: Test Room
-  waitingForPlayers: 2
+  waitingForPlayers: 1
   playerHeight: 0
   avatarPanels:
   - {fileID: 48834691}
@@ -11564,6 +11564,22 @@ MonoBehaviour:
   waitingPanel: {fileID: 1871859630}
   message: {fileID: 1753760801}
   audio: {fileID: 1105841992}
+  animators:
+  - {fileID: 1883121534}
+  - {fileID: 51728781}
+  - {fileID: 714253590}
+  - {fileID: 230267657}
+  - {fileID: 1984652577}
+  - {fileID: 1292397491}
+  - {fileID: 1388411509}
+  - {fileID: 1245215851}
+  - {fileID: 59960626}
+  - {fileID: 1406105710}
+  - {fileID: 224018106}
+  audioSources:
+  - {fileID: 2079911348}
+  - {fileID: 77361771}
+  - {fileID: 1105841992}
 --- !u!1 &1608756586
 GameObject:
   m_ObjectHideFlags: 0

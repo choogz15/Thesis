@@ -24,6 +24,9 @@ public class StartMenu : MonoBehaviour
 
     public AudioSource audio;
 
+    public List<Animator> animators;
+    public List<AudioSource> audioSources;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -39,10 +42,9 @@ public class StartMenu : MonoBehaviour
     private void AvatarCreated(RealtimeAvatarManager avatarManager, RealtimeAvatar avatar, bool isLocalAvatar)
     {
         waitingForPlayers--;
-        if(waitingForPlayers == 0)
+        if (waitingForPlayers == 0)
         {
             StartGame();
-            audio.Play();
         }
     }
 
@@ -78,8 +80,8 @@ public class StartMenu : MonoBehaviour
     private void Connected(Realtime room)
     {
         message.text = "WAITING FOR OTHER PLAYER";
-        
-        foreach(var model in xrControllerModels)
+
+        foreach (var model in xrControllerModels)
         {
             model.SetActive(false);
         }
@@ -88,6 +90,28 @@ public class StartMenu : MonoBehaviour
 
     private void StartGame()
     {
+        ResetAnimations();
+        ResetAudioSources();
         gameObject.SetActive(false);
+    }
+
+    //Reset animations when everyone has joined so that all players will see matching animations
+    void ResetAnimations()
+    {
+        foreach (var animator in animators)
+        {
+            animator.Rebind();
+            animator.Update(0f);
+        }
+    }
+
+    //Reset audio when everyone has joined so that all players will hear matching audio
+    void ResetAudioSources()
+    {
+        foreach (var audioSource in audioSources)
+        {
+            audioSource.Play();
+        }
+
     }
 }
