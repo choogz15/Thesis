@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 297476263268131849}
   - component: {fileID: 297476263264740393}
   - component: {fileID: 297476263265707753}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Liquid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 6354785030958836072}
   - component: {fileID: 6354785030958836071}
   - component: {fileID: 529268920148646185}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wine thin glass Red Wine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
