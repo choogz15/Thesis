@@ -22,14 +22,15 @@ public class StartMenu : MonoBehaviour
     private Realtime realtime;
     private RealtimeAvatarManager realtimeAvatarManager;
 
-    public AudioSource audio;
-
     public List<Animator> animators;
     public List<AudioSource> audioSources;
+
+    private Logger logger;
 
     // Start is called before the first frame update
     void Awake()
     {
+        logger = GameObject.Find("Logger").GetComponent<Logger>();
         GameObject realtimeVRPlayer = GameObject.Find("Realtime + VR Player");
         realtime = realtimeVRPlayer.GetComponent<Realtime>();
         realtimeAvatarManager = realtime.GetComponent<RealtimeAvatarManager>();
@@ -93,6 +94,7 @@ public class StartMenu : MonoBehaviour
         ResetAnimations();
         ResetAudioSources();
         gameObject.SetActive(false);
+        logger.StartLogging();
     }
 
     //Reset animations when everyone has joined so that all players will see matching animations
