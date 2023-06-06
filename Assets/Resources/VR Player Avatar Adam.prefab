@@ -1475,7 +1475,7 @@ MonoBehaviour:
       maxRootOffset: 0.3
       rootRotationHeader: 0
       maxRootAngleMoving: 10
-      maxRootAngleStanding: 90
+      maxRootAngleStanding: 0
       stepLengthMlp: 1
       footDistance: 0.3
       stepThreshold: 0.4

@@ -64,7 +64,7 @@ public class JoinMenu : MonoBehaviour
         if (isInPublicRoom)
         {
             xrOrigin.transform.position = privateRoomTeleportArea.position;
-            //xrOrigin.MoveCameraToWorldLocation(privateRoomTeleportArea.position);
+            xrOrigin.MoveCameraToWorldLocation(new Vector3(privateRoomTeleportArea.position.x, xrOrigin.Camera.transform.position.y, privateRoomTeleportArea.position.z));
             xrOrigin.MatchOriginUpCameraForward(privateRoomTeleportArea.up, privateRoomTeleportArea.forward);
             message.text = "Join Public Room";
         }
@@ -72,7 +72,7 @@ public class JoinMenu : MonoBehaviour
         else
         {
             xrOrigin.transform.position = publicRoomTeleportArea.position;
-            //xrOrigin.MoveCameraToWorldLocation(publicRoomTeleportArea.position);
+            xrOrigin.MoveCameraToWorldLocation(new Vector3(publicRoomTeleportArea.position.x, xrOrigin.Camera.transform.position.y, publicRoomTeleportArea.position.z));
             xrOrigin.MatchOriginUpCameraForward(publicRoomTeleportArea.up, publicRoomTeleportArea.forward);
             message.text = "Join Private Room";
         }
