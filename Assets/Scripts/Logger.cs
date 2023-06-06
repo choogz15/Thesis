@@ -53,10 +53,9 @@ public class Logger : MonoBehaviour
             Vector3 playerRHandRotation = realtimeAvatarManager.avatars.ContainsKey(i) ? realtimeAvatarManager.avatars[i].rightHand.transform.rotation.eulerAngles : new Vector3();
 
             playerData = playerData + playerPosition.x + "," + playerPosition.y + "," + playerPosition.z + "," + playerRotation.x + "," + playerRotation.y + "," + playerRotation.z + ","
-                + playerLHandPosition.x + "," + playerLHandPosition.y + "," + playerLHandPosition.z + "," + playerLHandRotation.x + "," + playerLHandRotation.y + "," + playerLHandRotation.z + ",";
-                //+ playerRHandPosition.x + "," + playerRHandPosition.y + "," + playerRHandPosition.z + "," + playerRHandRotation.x + "," + playerRHandRotation.y + "," + playerRHandRotation.z + ",";
+                + playerLHandPosition.x + "," + playerLHandPosition.y + "," + playerLHandPosition.z + "," + playerLHandRotation.x + "," + playerLHandRotation.y + "," + playerLHandRotation.z + ","
+                + playerRHandPosition.x + "," + playerRHandPosition.y + "," + playerRHandPosition.z + "," + playerRHandRotation.x + "," + playerRHandRotation.y + "," + playerRHandRotation.z + ",";
 
-            Debug.Log(playerData);
         }
 
         string filePath = "DataLog.csv";
