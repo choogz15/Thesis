@@ -20,9 +20,9 @@ public class Logger : MonoBehaviour
         string filePath = "DataLog.csv";
         StreamWriter writer = new StreamWriter(filePath, true);
         writer.WriteLine("Time," +
-            "P0PX,P0PY,P0PZ,P0RX,P0RY,P0RZ,P0LPX,P0LPY,P0LPZ,P0LRX,P0LRY,P0LRZ,P0RPX,P0RPY,P0RPZ,P0RRX,P0RRY,P0RRZ," +
-            "P1PX,P1PY,P1PZ,P1RX,P1RY,P1RZ,P1LPX,P1LPY,P1LPZ,P1LRX,P1LRY,P1LRZ,P1RPX,P1RPY,P1RPZ,P1RRX,P1RRY,P1RRZ," +
-            "P2PX,P2PY,P2PZ,P2RX,P2RY,P2RZ,P2LPX,P2LPY,P2LPZ,P2LRX,P2LRY,P2LRZ,P2RPX,P2RPY,P2RPZ,P2RRX,P2RRY,P2RRZ,");
+            "P0PX,P0PY,P0PZ,P0RX,P0RY,P0RZ,P0LPX,P0LPY,P0LPZ,P0LRX,P0LRY,P0LRZ,P0RPX,P0RPY,P0RPZ,P0RRX,P0RRY,P0RRZ,P0M," +
+            "P1PX,P1PY,P1PZ,P1RX,P1RY,P1RZ,P1LPX,P1LPY,P1LPZ,P1LRX,P1LRY,P1LRZ,P1RPX,P1RPY,P1RPZ,P1RRX,P1RRY,P1RRZ,P1M," +
+            "P2PX,P2PY,P2PZ,P2RX,P2RY,P2RZ,P2LPX,P2LPY,P2LPZ,P2LRX,P2LRY,P2LRZ,P2RPX,P2RPY,P2RPZ,P2RRX,P2RRY,P2RRZ,P2M");
         writer.Close();
     }
 
@@ -52,9 +52,11 @@ public class Logger : MonoBehaviour
             Vector3 playerRHandPosition = realtimeAvatarManager.avatars.ContainsKey(i) ? realtimeAvatarManager.avatars[i].rightHand.transform.position : new Vector3();
             Vector3 playerRHandRotation = realtimeAvatarManager.avatars.ContainsKey(i) ? realtimeAvatarManager.avatars[i].rightHand.transform.rotation.eulerAngles : new Vector3();
 
+            bool isMute = realtimeAvatarManager.avatars.ContainsKey(i) ? realtimeAvatarManager.avatars[i].GetComponentInChildren<RealtimeAvatarVoice>().mute : false;
+
             playerData = playerData + playerPosition.x + "," + playerPosition.y + "," + playerPosition.z + "," + playerRotation.x + "," + playerRotation.y + "," + playerRotation.z + ","
                 + playerLHandPosition.x + "," + playerLHandPosition.y + "," + playerLHandPosition.z + "," + playerLHandRotation.x + "," + playerLHandRotation.y + "," + playerLHandRotation.z + ","
-                + playerRHandPosition.x + "," + playerRHandPosition.y + "," + playerRHandPosition.z + "," + playerRHandRotation.x + "," + playerRHandRotation.y + "," + playerRHandRotation.z + ",";
+                + playerRHandPosition.x + "," + playerRHandPosition.y + "," + playerRHandPosition.z + "," + playerRHandRotation.x + "," + playerRHandRotation.y + "," + playerRHandRotation.z + "," + isMute + ",";
 
         }
 
