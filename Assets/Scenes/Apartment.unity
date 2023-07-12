@@ -7549,7 +7549,7 @@ GameObject:
   - component: {fileID: 1105841993}
   - component: {fileID: 1105841992}
   m_Layer: 0
-  m_Name: background music
+  m_Name: partymusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
