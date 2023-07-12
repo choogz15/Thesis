@@ -7,17 +7,19 @@ using Normal.Realtime.Serialization;
 
 public class Logger : MonoBehaviour
 {
+    //Logs the Position the Rotation of the Main Camera, Left Hand, and Right Hand. Currently hardcoded for 3 players.
+
     private float startTime;
     private RealtimeAvatarManager realtimeAvatarManager;
 
     private bool shouldLog = false;
+    private string filePath = "DataLog.csv";
 
     // Start is called before the first frame update
     void Start()
     {
         realtimeAvatarManager = GameObject.Find("Realtime + VR Player").GetComponent<RealtimeAvatarManager>();
         startTime = Time.time;
-        string filePath = "DataLog.csv";
         StreamWriter writer = new StreamWriter(filePath, true);
         writer.WriteLine("Time," +
             "P0PX,P0PY,P0PZ,P0RX,P0RY,P0RZ,P0LPX,P0LPY,P0LPZ,P0LRX,P0LRY,P0LRZ,P0RPX,P0RPY,P0RPZ,P0RRX,P0RRY,P0RRZ,P0M," +
@@ -36,9 +38,7 @@ public class Logger : MonoBehaviour
     {
         if (!shouldLog) return;
 
-
         float currentTime = Time.time - startTime;
-
         string playerData = "";
 
         for(int i = 0; i < 3; i++)
@@ -60,7 +60,6 @@ public class Logger : MonoBehaviour
 
         }
 
-        string filePath = "DataLog.csv";
         StreamWriter writer = new StreamWriter(filePath, true);
         writer.WriteLine(currentTime + "," + playerData);
         writer.Close();

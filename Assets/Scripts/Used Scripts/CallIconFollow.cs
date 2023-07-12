@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class CallIconFollow : MonoBehaviour
 {
-    public Transform localPlayerHead;
+    //Make the remote avatars' call icon face the local player all the time
+
     public Transform avatarHead;
-    public float verticalOffset = 0.5f;
+    private Transform localPlayerHead;   //main camera of the XR Origin
+    private float verticalOffset = 0.5f; //distance from call icon to avatar head
 
     private void Awake()
     {
