@@ -3686,48 +3686,23 @@ PrefabInstance:
       objectReference: {fileID: 1567133206}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fca9d4afb3743274e8f7da14019d7e0b, type: 3}
---- !u!1 &325829801 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1572161834460568, guid: fca9d4afb3743274e8f7da14019d7e0b, type: 3}
-  m_PrefabInstance: {fileID: 325829800}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &325829803 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114501696213753918, guid: fca9d4afb3743274e8f7da14019d7e0b, type: 3}
   m_PrefabInstance: {fileID: 325829800}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325829801}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1424795628, guid: ebae63e7edba59945a994528ada1f7a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &325829806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325829801}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97c7d4cc2e4bcf443814c4b37cdb55d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  realtimeAvatarManager: {fileID: 325829807}
-  incomingCallMenu: {fileID: 1640751824}
-  incomingCallMenuAcceptButton: {fileID: 1889505002}
-  incomingCallMenuRejectButton: {fileID: 1475895215}
-  outgoingCallMenu: {fileID: 280862061}
-  outgoingCallMenuCancelButton: {fileID: 29639666}
-  ongoingCallMenu: {fileID: 2056841790}
-  ongoingCallMenuEndButton: {fileID: 1739530227}
 --- !u!114 &325829807 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114568985850100520, guid: fca9d4afb3743274e8f7da14019d7e0b, type: 3}
   m_PrefabInstance: {fileID: 325829800}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325829801}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5b6ae53fe1e66d429cc41bbf5b29cb3, type: 3}
@@ -7932,7 +7907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1146428161
 MonoBehaviour:
   m_ObjectHideFlags: 0
